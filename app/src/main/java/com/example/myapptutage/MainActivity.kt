@@ -36,6 +36,12 @@ class MainActivity : AppCompatActivity() {
 
                     val theDate = sdf.parse(selectedDate)
 
+                    val selectedDateInMinutes = theDate!!.time/60000
+                    val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
+                    val currentDateToMinutes = currentDate!!.time/60000
+                    val differenceInMinutes = currentDateToMinutes - selectedDateInMinutes
+                    tvSelectedDateInMinutes.setText(differenceInMinutes.toString())
+
 
                 }, i, i2, i3).show()
     }
